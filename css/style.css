@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Exo|Rubik:500&display=swap');
+
+:root {
+     --darkBlue: rgb(9, 18, 31);
+     --navbarColor: rgb(9, 18, 31);
+     --btnColor: rgb(9, 18, 31);
+     --btnHoverColor: rgb(14, 28, 48);
+     --searchBorder: 1px rgba(196, 196, 196, .7) solid;
+     --savedItemsBorder: 1px rgb(91, 91, 91) solid;
+     --navbarBorder: 3px #333 solid;
+     --darkGray: #333;
+}
+
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+     font-family: 'Exo', sans-serif;
+}
+
+body {
+     background: var(--darkGray);
+}
+
+
+
+#navbar {
+     display: flex;
+     height: 60px;
+     grid-area: nav;
+     align-content: center;
+     align-items: center;
+     flex-direction: row;
+     background: var(--navbarColor);
+     border: var(--navbarBorder);
+}
+
+.search-field {
+     height: 35px;
+     width: 140px;
+     border: var(--searchBorder);
+     border-radius: 5px;
+     font-size: 14px;
+     padding-left: 7px;
+     background: var(--darkGray);
+     color: #fff;
+     outline: none;
+     margin: 10px;
+}
+
+.new-item-title,
+.new-item-isle {
+     height: 30px;
+     width: 100px;
+     border: var(--searchBorder);
+     border-radius: 5px;
+     font-size: 14px;
+     padding-left: 7px;
+     background: var(--darkGray);
+     color: #fff;
+     outline: none;
+     margin: 10px;
+}
+
+
+.btn {
+     font-size: 17px;
+     margin-top: 10px;
+     margin-left: 10px;
+     margin-right: 10px;
+     height: 30px;
+     width: 100px;
+     cursor: pointer;
+     color: #fff;
+     border-radius: 5px;
+     background: var(--btnColor);
+     outline: none;
+     transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+     background: var(--btnHoverColor);
+     transform: scale(1.05);
+}
+
+.btn:active {
+     transform: scale(.98);
+}
+
+
+#container {
+     display: grid;
+     width: 600px;
+     height: 600px;
+     grid-template-areas: "nav nav " "saved-items selected-items";
+     grid-template-columns: 260px 1fr;
+     grid-template-rows: 60px 550px;
+     margin: auto;
+     box-shadow: -15px 24px 30px 5px rgb(10,10,10);
+}
+ 
+ 
+#saved-items-container {
+     grid-area: saved-items;
+     width: 260px;
+     background: var(--darkBlue);
+     overflow: auto;
+     position: relative;
+}
+
+.saved-item {
+     display: flex;
+     align-items: center;
+     padding: 2px;
+     background: var(--darkBlue);
+     border: var(--savedItemsBorder);
+     text-decoration: none;
+     margin: 4px;
+     transition: all 0.1s ease-out;
+}
+      
+.saved-item:hover {
+     transform: scale(1.01);
+}
+
+.item-info {
+     padding-left: 5px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     width: 100%;
+     cursor: pointer;
+}
+
+.item-title {
+     text-transform: capitalize;
+     font-size: 18px;
+     color: #fff;
+     padding-right: 5px;
+     font-size: 22px;
+     
+}
+
+.isle-number {
+     color: #fff;
+     font-size: 12px;
+     font-style: italic;
+     padding-right: 5px;
+}
+
+
+.new-item-btn {
+     font-size: 13px;
+     margin: 4px;
+     padding: 0 5px;
+     height: 35px;
+     width: 70px;
+     border-radius: 20px;
+     cursor: pointer;
+     color: #fff;
+     background: var(--btnColor);
+}
+
+#selected-items-container {
+     grid-area: selected-items;
+     overflow: auto;
+     background: var(--darkGray);
+}
+     
+
+.selected-item {
+     display: flex;
+     align-items: center;
+     padding: 2px;
+     background: var(--darkBlue);
+     border: var(--savedItemsBorder);
+     text-decoration: none;
+     margin: 4px;
+     cursor: pointer;
+     transition: all 0.1s ease-out;
+}
+
+.selected-item-info {
+     margin-left: 5px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     width: 100%;
+}
+
+.selected-item-title {
+     text-transform: capitalize;
+     font-size: 18px;
+     color: #fff;
+}
+.selected-isle-number {
+     color: #fff;
+     font-size: 12px;
+     font-style: italic;
+     padding-right: 5px;
+} 
+
+/* ------------------------------------- */
+/* LOGIN */
+
+.login-form {
+     width: 300px;
+     margin: 0 auto;
+     font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+     text-align: center;
+     color: #4d4d4d;
+     font-size: 24px;
+     padding: 20px 0 20px 0;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+     width: 100%;
+     padding: 15px;
+     border: 1px solid #dddddd;
+     margin-bottom: 15px;
+     box-sizing:border-box;
+}
+.login-form input[type="submit"] {
+     width: 100%;
+     padding: 15px;
+     background-color: #535b63;
+     border: 0;
+     box-sizing: border-box;
+     cursor: pointer;
+     font-weight: bold;
+     color: #ffffff;
+}
