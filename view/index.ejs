@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/desktop.css">
+	<title>shoppingRoute</title>
+</head>
+
+<body>
+	<section id="container">
+		<nav id="navbar">
+			<div id="greet-logout">
+				<h1 class="welcome">Welcome, <%= name %>!</h1>
+				<form class="search" action="/logout" , method="GET">
+					<button class="btn" id="submit" type="submit">Logout</button>
+				</form>
+			</div>
+			<div id="addItem">
+				<form action="/newItem" , method="POST">
+					<input type="text" class="new-item-title" placeholder="Item Title.." name="title">
+					<input type="text" class="new-item-isle" placeholder="Isle Number.." name="isle">
+					<button class="new-item-btn" type="submit">Add Item</button>
+				</form>
+			</div>
+			<div id="items">
+				<button class="openbtn" onclick="openNav()">&#9776; Items</button>
+			</div>
+		</nav>
+
+		<div id="items-container">
+			<div id="sidebar">
+				<h1 class="savedItems">Saved Items:</h1>
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<ul class="saved-items-list">
+					<% for(let i = 0; i < itemList.length; i++) { %>
+					<li onclick="selectedItemMarkup('<%= itemList[i].name %>', '<%= itemList[i].isle %>')">
+						<a class="saved-item">
+							<div class="item-info">
+								<h4 class="item-title"><%= itemList[i].name %></h4>
+								<p class="isle-number"><%= itemList[i].isle %></p>
+							</div>
+						</a>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+
+			<div class="selected-items">
+				<section id="selected-items-container">
+					<ul class="selected-items-list">
+					</ul>
+				</section>
+			</div>
+		</div>
+
+	</section>
+</body>
+<script src="./client.js"></script>
+
+</html>

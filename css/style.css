@@ -25,22 +25,45 @@ body {
 
 
 #navbar {
-     display: flex;
-     height: 60px;
-     grid-area: nav;
-     align-content: center;
-     align-items: center;
-     flex-direction: row;
+     height: 170px;
      background: var(--navbarColor);
      border: var(--navbarBorder);
 }
 
-.search-field {
+#greet-logout {
+     display: flex;
+     margin-top: 10px;
+     padding-left: 5px;
+     padding-right: 5px;
+     justify-content: space-between;
+     align-content: center;
+}
+
+#addItem{
+     display: flex;
+     margin: 15px 0 15px 0;
+     justify-content: space-evenly;
+     align-content: center;
+}
+
+#items {
+     display: flex;
+     justify-content: center;
+}
+
+.welcome {
+     color: #fff;
+     font-size: 22px;
+}
+
+
+.new-item-title,
+.new-item-isle {
      height: 35px;
-     width: 140px;
+     width: 110px;
      border: var(--searchBorder);
      border-radius: 5px;
-     font-size: 14px;
+     font-size: 15px;
      padding-left: 7px;
      background: var(--darkGray);
      color: #fff;
@@ -48,26 +71,30 @@ body {
      margin: 10px;
 }
 
-.new-item-title,
-.new-item-isle {
-     height: 30px;
-     width: 100px;
-     border: var(--searchBorder);
-     border-radius: 5px;
-     font-size: 14px;
-     padding-left: 7px;
-     background: var(--darkGray);
+.new-item-btn {
+     font-size: 13px;
+     padding: 0 5px;
+     height: 35px;
+     width: 70px;
+     border-radius: 20px;
+     cursor: pointer;
      color: #fff;
-     outline: none;
-     margin: 10px;
+     background: var(--btnColor);
+}
+
+.openbtn {
+     width: 100%;
+     font-size: 15px;
+     cursor: pointer;
+     background: var(--navbarColor);
+     color: white;
+     padding: 10px 15px;
+     border-radius: 5px;
 }
 
 
 .btn {
      font-size: 17px;
-     margin-top: 10px;
-     margin-left: 10px;
-     margin-right: 10px;
      height: 30px;
      width: 100px;
      cursor: pointer;
@@ -89,24 +116,35 @@ body {
 
 
 #container {
-     display: grid;
-     width: 600px;
-     height: 600px;
-     grid-template-areas: "nav nav " "saved-items selected-items";
-     grid-template-columns: 260px 1fr;
-     grid-template-rows: 60px 550px;
      margin: auto;
-     box-shadow: -15px 24px 30px 5px rgb(10,10,10);
 }
  
  
-#saved-items-container {
-     grid-area: saved-items;
-     width: 260px;
-     background: var(--darkBlue);
-     overflow: auto;
-     position: relative;
+#sidebar {
+     height: 100%; 
+     width: 0; 
+     position: fixed; 
+     z-index: 1; 
+     top: 0;
+     left: 0;
+     background-color: #111; 
+     overflow-x: hidden; 
+     padding-top: 60px; 
+     transition: 0.5s;
 }
+
+#sidebar .savedItems {
+     color: #fff;
+}
+
+#sidebar .closebtn {
+     position: absolute;
+     top: 0;
+     right: 25px;
+     font-size: 36px;
+     margin-left: 50px;
+}
+
 
 .saved-item {
      display: flex;
@@ -118,7 +156,13 @@ body {
      margin: 4px;
      transition: all 0.1s ease-out;
 }
-      
+
+.selected {
+     color: red;
+     text-decoration: line-through;
+     opacity: 0.4;
+}
+
 .saved-item:hover {
      transform: scale(1.01);
 }
@@ -134,37 +178,25 @@ body {
 
 .item-title {
      text-transform: capitalize;
-     font-size: 18px;
-     color: #fff;
-     padding-right: 5px;
      font-size: 22px;
-     
+     color: #fff;
+     padding-right: 5px; 
 }
 
 .isle-number {
      color: #fff;
-     font-size: 12px;
+     font-size: 14px;
      font-style: italic;
      padding-right: 5px;
 }
 
-
-.new-item-btn {
-     font-size: 13px;
-     margin: 4px;
-     padding: 0 5px;
-     height: 35px;
-     width: 70px;
-     border-radius: 20px;
-     cursor: pointer;
-     color: #fff;
-     background: var(--btnColor);
-}
-
 #selected-items-container {
-     grid-area: selected-items;
      overflow: auto;
      background: var(--darkGray);
+}
+
+.selected-items {
+     overflow: auto;
 }
      
 
@@ -178,6 +210,7 @@ body {
      margin: 4px;
      cursor: pointer;
      transition: all 0.1s ease-out;
+     width: 90%;
 }
 
 .selected-item-info {
@@ -190,12 +223,12 @@ body {
 
 .selected-item-title {
      text-transform: capitalize;
-     font-size: 18px;
+     font-size: 25px;
      color: #fff;
 }
 .selected-isle-number {
      color: #fff;
-     font-size: 12px;
+     font-size: 15px;
      font-style: italic;
      padding-right: 5px;
 } 
@@ -208,27 +241,74 @@ body {
      margin: 0 auto;
      font-family: Tahoma, Geneva, sans-serif;
 }
-.login-form h1 {
+.login-title {
      text-align: center;
      color: #4d4d4d;
      font-size: 24px;
      padding: 20px 0 20px 0;
 }
 .login-form input[type="password"],
-.login-form input[type="text"] {
+.login-form input[type="text"],
+.login-form input[type="email"]  {
      width: 100%;
      padding: 15px;
-     border: 1px solid #dddddd;
      margin-bottom: 15px;
+     font-size: 17px;
      box-sizing:border-box;
+     background: rgb(83,91,99);
+     border: none;
+     border-radius: 10px;
+     outline: 0;
+     color: #fff;
 }
+
+.login-form input[type="password"]::placeholder,
+.login-form input[type="text"]::placeholder,
+.login-form input[type="email"]::placeholder {
+     color: rgb(128, 128, 128);
+}
+
 .login-form input[type="submit"] {
      width: 100%;
      padding: 15px;
-     background-color: #535b63;
-     border: 0;
+     margin-bottom: 10px;
+     font-size: 17px;
+     background-color: rgb(64, 69, 75);
+     border: none;
+     border-radius: 10px;
      box-sizing: border-box;
      cursor: pointer;
      font-weight: bold;
-     color: #ffffff;
+     color: #fff;
+     outline: 0;
 }
+
+.link-container {
+     display: flex;
+     justify-content: center;
+}
+
+.link {
+     color: #fff;
+}
+
+.return-to-login {
+     color: #fff;
+     text-transform: uppercase;
+     text-decoration: none;
+     background: #4d4d4d;
+     padding: 15px;
+     border-radius: 35px;
+     display: inline-block;
+     border: none;
+     transition: all 0.4s ease 0s;
+     outline: 0;
+}
+
+.login-error {
+     font-size: 26px;
+     text-align: center;
+     color: #4d4d4d;
+     padding: 20px 0 20px 0;
+}
+

@@ -6,17 +6,15 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="../css/style.css">
-     <title>Login</title>
+     <title>Login Error</title>
 </head>
 
 <body>
      <div class="login-form">
-          <h1>Login Form</h1>
-          <form action="/auth" method="POST">
-               <input type="text" name="username" placeholder="Username" required>
-               <input type="password" name="password" placeholder="Password" required>
-               <input type="submit">
-          </form>
+          <h1 class="login-error">You Are Not Logged In</h1>
+          <div class="link-container">
+               <a class="return-to-login" href='/'>Login In Here</a>
+          </div>
      </div>
 </body>
 

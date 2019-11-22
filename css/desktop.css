@@ -1,0 +1,82 @@
+@media (min-width: 768px) {
+     #container {
+          width: 600px;
+          height: 700px;
+          margin: auto;
+          box-shadow: -15px 24px 30px 5px rgb(10,10,10);
+     }
+
+     #navbar {
+          display: grid;
+          height: 120px;
+          grid-template-areas: 
+               "greeting-logout"
+               "add-item";
+          grid-template-rows: 60px 60px;
+          background: var(--navbarColor);
+          border: var(--navbarBorder);
+     }
+
+     #sidebar {
+          grid-area: saved-items;
+          overflow: auto;
+          width: 260px;
+          background: var(--darkBlue);
+          overflow: auto;
+          position: relative;
+          padding-top: 5px;
+     }
+
+     #addItem {
+          margin: 0px;
+     }
+
+     #greet-logout {
+          grid-area: greeting-logout;
+     }
+
+     #addItem {
+          grid-area: add-item;
+     }
+
+     .savedItems {
+          padding-left: 5px;
+     }
+
+     #items-container {
+          display: grid;
+          grid-template-areas: 
+               "saved-items" 
+               "selected-items";
+          grid-template-columns: 260px 1fr;
+          grid-template-rows: 580px;
+     }
+
+     #selected-items-container {
+          grid-area: selected-items;
+          overflow: auto;
+          background: var(--darkGray);
+     }
+
+     .selected-item {
+          display: flex;
+          align-items: center;
+          padding: 2px;
+          background: var(--darkBlue);
+          border: var(--savedItemsBorder);
+          text-decoration: none;
+          margin: 4px;
+          cursor: pointer;
+          transition: all 0.1s ease-out;
+     }
+     
+
+     #items .openbtn {
+          display: none;
+     }
+
+     #sidebar .closebtn {
+          display: none;
+     }
+
+}
