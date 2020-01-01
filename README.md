@@ -11,7 +11,7 @@ A web application that allows users to log their grocery items by name and the c
 * [EJS](https://ejs.co/) - Embedded JavaScript Templating
 * [Mongoose](https://mongoosejs.com/) - Database
 * [Express](https://expressjs.com/) - Backend
-* [Passport.js] (http://www.passportjs.org/) - User Authentication
+* [Passport.js](http://www.passportjs.org/) - User Authentication
 
 # Demo
 ![](shopping-demo.gif)
